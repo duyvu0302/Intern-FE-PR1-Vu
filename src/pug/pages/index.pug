@@ -1,3 +1,18 @@
 extend ../base/base.pug
-
+include ../components/carousels.pug
 block content
+    main.py-5
+        .banner__main
+            .container
+                .row
+                    .col-lg-8.pr-0.col-md-12
+                        +carouselsHome()
+                    .col-lg-4.pl-0.col-md-12
+                        .banner__main-devices.border.h-100
+                            each device,index in devices
+                                .device__item.d-flex.px-3.pt-3
+                                    span.my-auto.pr-4
+                                        i(class=`${device.icon}`)
+                                    .device__item-content
+                                        p= device.title
+                                        span= device.content

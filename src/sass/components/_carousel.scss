@@ -1,0 +1,12 @@
+#carouselHome{
+  .carousel-indicators{
+    li{
+      height: 10px !important;
+      width: 10px !important;
+      background-color: $silver !important;
+    }
+    .active{
+      background-color: $font-dark !important;
+    }
+  }
+}
