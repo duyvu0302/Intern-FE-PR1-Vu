@@ -59,7 +59,6 @@
   visibility: visible;
 }
 @mixin for-size($breakpoint, $direction:down) {
-
   //neu breakpoint ton tai
   @if map-has-key($breakpoints,  $breakpoint) {
       //Kiểm tra breakpoint truyền vào có tồn tại như bạn đã định nghĩa hay không.

@@ -1,7 +1,10 @@
 extend ../base/base.pug
+include ../components/modal.pug
 include ../components/carousels.pug
 block content
     main.py-5
+        section.modal__home
+            +modalHome
         .banner__main
             .container
                 .row
@@ -16,3 +19,4 @@ block content
                                     .device__item-content
                                         p= device.title
                                         span= device.content
+        
