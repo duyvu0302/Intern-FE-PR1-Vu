@@ -1,6 +1,18 @@
 extend ../base/base.pug
 include ../components/modal.pug
 include ../components/carousels.pug
+include ../components/listFilter.pug
+mixin titleSection(title,attribute)
+    .titleSection.py-5.d-flex.justify-content-between
+        div.d-flex
+            img.mt-2(src="./assets/images/4-black-squares.svg", alt="").d-block
+            p.pl-2.m-0= title
+        .titleSection__btn
+            a(attribute)
+                i.fas.fa-caret-left
+            a.ml-1(attribute) 
+                i.fas.fa-caret-right
+
 block content
     main.py-5
         section.modal__home
@@ -19,4 +31,21 @@ block content
                                     .device__item-content
                                         p= device.title
                                         span= device.content
-        
+        .main__productHots
+            .container
+                .row
+                    .col-lg-12
+                        +titleSection("SẢN PHẨM NỔI BẬT")
+                .row
+                    .col-lg-3.col-md-12.productHost__filter
+                        ul.listFilter
+                            li.filter--title
+                                .d-flex.position-relative.align-items-center.justify-content-between
+                                    div.d-flex.p-3
+                                        i.mt-2.fas.fa-th-large
+                                        p.pl-2 MÁY KHOAN, CẮT CNC
+                                    a(href="#filter" data-toggle="collapse").pr-2.text-yellow
+                                        i.fas.fa-chevron-down
+                            +listFilter
+                        #filter.collapse
+                            +listFilter

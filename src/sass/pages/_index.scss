@@ -69,4 +69,25 @@ main{
     }
     }
   }
+  .main__productHots{
+    .productHost__filter{
+      .filter--title{
+        a{
+          display: none;
+          @include for-size(lg){
+            display: inline-block;
+          }
+        }
+      }
+      #filter{
+        .filter__item{
+          color: $silver;
+          cursor: pointer;
+          &:hover{
+            color: $yellow !important; 
+          }
+        }
+      }
+    }
+  }
 }

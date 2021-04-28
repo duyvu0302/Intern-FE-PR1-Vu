@@ -1,0 +1,23 @@
+.listFilter{
+  @include borderMe();
+  .filter--title{
+    background-color: $black;
+    color: $yellow;
+   
+  }
+  i{
+    display: inline-block;
+  }
+  .filter__item{
+    color: $silver;
+    @include for-size(lg){
+      display: none;
+    }
+    cursor: pointer;
+    &:hover{
+      div{
+        color: $yellow !important;
+      }
+    }
+  }
+}
