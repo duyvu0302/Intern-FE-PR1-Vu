@@ -1,0 +1,51 @@
+main{
+  .banner__main{
+    .row{
+      .col-lg-8{
+        @include for-size(lg){
+          padding-right: 15px !important;
+        }
+      }
+      .col-lg-4{
+        @include for-size(lg){
+          padding-left: 15px !important;
+        }
+      }
+    }
+    &-devices{
+      display: flex;
+      flex-direction: column;
+      .device__item{
+        @include for-size(xl){
+          padding-top: 0 !important;
+          padding-right: 0 !important;
+        }
+        @include for-size(lg){
+          padding-top: 1rem !important;
+          border-bottom: 1px solid $silver;
+        }
+        &:hover{
+          background-color: $yellow;
+          color: $white;
+          cursor: pointer;
+          >span{
+            color: $white;
+          }
+        }
+        flex-grow: 1;
+        >span{
+          font-size: 30px;
+          color: $yellow;
+        }
+        &-content{
+          p{
+            font-size: 16px;
+          }
+          span{
+            font-weight: 400;
+          }
+        }
+    }
+    }
+  }
+}

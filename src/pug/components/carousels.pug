@@ -1,0 +1,27 @@
+block variables
+    include ../base/data.pug
+
+mixin carousels(id,dem)
+    div(id= `${id}`,class= 'carousel slide' data-ride='carousel')
+        .carousel-inner
+            each product,index in products
+                div(class = `carousel-item ${index ==0 ? 'active':''}`)
+
+mixin carouselsHome()
+    #carouselHome.carousel.slide(data-ride = 'carousel')
+        ul.carousel-indicators
+            li(data-target="#carouselHome" data-slide-to="0" class="normal active")
+            li(data-target="#carouselHome" data-slide-to="1" class="normal")
+            li(data-target="#carouselHome" data-slide-to="2" class="normal")
+        .carousel-inner
+            .carousel-item.active
+                img(src="./assets/images/SLIDER.jpg", alt="banner1")
+            .carousel-item
+                img(src="./assets/images/SLIDER.jpg", alt="banner2")
+            .carousel-item
+                img(src="./assets/images/SLIDER.jpg", alt="banner3")
+
+        a(class="carousel-control-prev" href="#carouselHome" data-slide="prev")
+            span(class="carousel-control-prev-icon")
+        a(class="carousel-control-next" href="#carouselHome" data-slide="next")
+            span(class="carousel-control-next-icon")
