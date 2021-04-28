@@ -47,8 +47,6 @@ header{
         padding: .98rem;
         border: 1px solid $border-color-1;
         font-weight: 700;
-        @include for-size(sm){
-        }
         &:hover{
           background-color: $yellow;
           color: $white;
@@ -58,12 +56,12 @@ header{
   }
   .header__mid{
     &-contact{
-      @include for-size(lg){
+      @include for-size(normal){
         display: none;
       }
     }
       .logo-inner{
-        @include for-size(sm){
+        @include for-size(lg){
             @include flex("",center,"","");         
         }
         .logo{
@@ -84,7 +82,6 @@ header{
           margin-bottom: 2rem;
         }
         input{
-         
           height: 60px;
           border-radius: 40px;
           -webkit-border-radius: 40px;
@@ -109,8 +106,9 @@ header{
     }
     background-color: $black;
     .nav__mobile{
-      @include for-size(lg,up){
-        display: none;
+      display: none;
+      @include for-size(lg){
+        display: block;
       }
       >.d-flex{
         padding: 1rem 2rem;

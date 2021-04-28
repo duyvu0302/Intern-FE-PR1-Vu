@@ -1,0 +1,7 @@
+mixin listFilter()
+        - let listFilter =["Máy in khổ lớn","Máy quét Canon 3D","Máy hàn điện Alumia","Máy khoan Decameta","Máy phay đa năng CNC","Máy mài, tiện DC 12v","Máy khoan, cắt CNC","Máy quay thông minh N3","Motor R34C thông dụng","Máy in lazer 3D"]
+        each filter in listFilter
+            li.filter__item
+                .d-flex.p-3
+                    i.mt-2.fas.fa-th-large
+                    p.pl-2= filter

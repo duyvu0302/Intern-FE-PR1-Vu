@@ -1,11 +1,17 @@
 block variables
     include ../base/data.pug
 
-mixin carousels(id,dem)
-    div(id= `${id}`,class= 'carousel slide' data-ride='carousel')
-        .carousel-inner
-            each product,index in products
-                div(class = `carousel-item ${index ==0 ? 'active':''}`)
+mixin carouselProduct(data, size, id,type)
+    div( id=id, class = `${type}  carouselProduct carousel slide` data-ride = 'carousel'  )
+        div(class="carousel-inner")
+            - for(var i= 0; i< data.length; i+=size)
+                - var carouselContent = data.slice(i, i+size)
+                    div(class=`carousel-item ${i == 0 && "active"} `)
+                        .container
+                            .row
+                                each item, index in carouselContent
+                                    .col-lg-4.col-md-6.col-sm-12
+                                        +product(item)
 
 mixin carouselsHome()
     #carouselHome.carousel.slide(data-ride = 'carousel')
