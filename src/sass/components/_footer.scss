@@ -62,7 +62,7 @@
     &-nav{
       gap: 2rem;
       flex-wrap: wrap;
-      @include for-size(md,down){
+      @include for-size(md){
         gap: 1rem;
       }
       li{

@@ -2,19 +2,22 @@ extend ../base/base.pug
 include ../components/modal.pug
 include ../components/carousels.pug
 include ../components/listFilter.pug
+include ../components/product.pug
+
 mixin titleSection(title,attribute)
     .titleSection.py-5.d-flex.justify-content-between
         div.d-flex
             img.mt-2(src="./assets/images/4-black-squares.svg", alt="").d-block
             p.pl-2.m-0= title
-        .titleSection__btn
-            a(attribute)
-                i.fas.fa-caret-left
-            a.ml-1(attribute) 
-                i.fas.fa-caret-right
-
+        - var title = 0
+        while (title++ < 3)
+            div(class=`${title == 1 ? 'btnDesktop' : ''} ${title == 2 ? 'btnLaptop' : ''} ${title == 3 ? 'btnMobile' : ''} titleSection__btn `)
+                a(href=`#${title == 1 ? 'carouselProduct' :`${title==2 ? 'carouselProduct1' : 'carouselProduct2'}`}` data-slide="prev")
+                    i.fas.fa-caret-left
+                a.ml-1(href=`#${title == 1 ? 'carouselProduct' :`${title==2 ? 'carouselProduct1' : 'carouselProduct2'}`}` data-slide="next")
+                    i.fas.fa-caret-right
 block content
-    main.py-5
+    main.my-5
         section.modal__home
             +modalHome
         .banner__main
@@ -49,3 +52,9 @@ block content
                             +listFilter
                         #filter.collapse
                             +listFilter
+                    .col-lg-9.col-md-12.container
+                        .row
+                            +carouselProduct(products,6,"carouselProduct","desktopCarousel")
+                            +carouselProduct(products,2,"carouselProduct1","laptopCarousel")
+                            +carouselProduct(products,1,"carouselProduct2","mobileCarousel")
+                           

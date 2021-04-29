@@ -1,0 +1,30 @@
+block variables
+    include ../base/data.pug
+mixin product({img,name,gia,danhGia,stars})
+    .main__product
+      .main__product-inner
+        .main__product-img
+            img(src=img, alt="product")
+        .main__product-content.text-center
+            p.price= `${gia} Đ`
+            p.main__product-content-title= name
+            .d-flex.justify-content-center
+              ul.d-flex
+                  - var i = 1;
+                  while i <= stars
+                      li 
+                          i.fas.fa-star
+                          - i++
+
+                  if !Number.isInteger(stars)
+                      li 
+                          i.fas.fa-star-half-alt
+                          - i++
+                  while i <= 5
+                      li 
+                          i.far.fa-star
+                          - i++
+              span.pb-3.text-span.font-italic.pl-1= `( ${danhGia} đánh giá )`
+        .main__product-btn.d-flex.px-2
+            button.btn.btn-warning MUA NGAY
+            button.btn.btn-dark XEM CHI TIẾT

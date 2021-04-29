@@ -10,7 +10,7 @@
   }
   .filter__item{
     color: $silver;
-    @include for-size(lg){
+    @include for-size(normal){
       display: none;
     }
     cursor: pointer;

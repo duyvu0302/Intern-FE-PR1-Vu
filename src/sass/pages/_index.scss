@@ -23,12 +23,12 @@ main{
   .banner__main{
     .row{
       .col-lg-8{
-        @include for-size(lg){
+        @include for-size(normal){
         padding-right: 15px !important;
         }
       }
       .col-lg-4{
-        @include for-size(lg){
+        @include for-size(normal){
         padding-left: 15px !important;
         }
       }
@@ -41,7 +41,7 @@ main{
           padding-top: 0 !important;
           padding-right: 0 !important;
         }
-        @include for-size(lg){
+        @include for-size(normal){
           padding-top: 1rem !important;
           border-bottom: 1px solid $silver;
         }
@@ -74,7 +74,7 @@ main{
       .filter--title{
         a{
           display: none;
-          @include for-size(lg){
+          @include for-size(normal){
             display: inline-block;
           }
         }

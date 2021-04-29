@@ -10,3 +10,41 @@
     }
   }
 }
+.carouselProduct{
+  @include for-size(lg){
+    padding-top: 2rem;
+  }
+  width: 100%;
+  .carousel-inner{
+    padding-bottom: 2rem;
+  }
+}
+.desktopCarousel{
+  display: block;
+  @include for-size(lg,down){
+    display: none !important;
+  }
+}
+.btnDesktop{
+  @extend .desktopCarousel;
+}
+.laptopCarousel{
+  display: none !important;
+  @include for-size(lg,down){
+    display: block !important;
+  }
+  @include for-size(md,down){
+    display: none !important;
+  }
+}
+.btnLaptop{
+  @extend .laptopCarousel;
+}
+.mobileCarousel{
+  @include for-size(md,up){
+    display: none !important;
+  }
+}
+.btnMobile{
+  @extend .mobileCarousel;
+}
