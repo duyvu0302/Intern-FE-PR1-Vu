@@ -21,8 +21,18 @@
           color: $yellow !important;
         }
       }
+      .filterColor{
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+      }
     }
     .filter__discount{
+      @include for-size(normal){
+        display: none;
+        
+      }
+      cursor: pointer;
       .d-flex{
         padding: .5rem;
         img{
@@ -40,12 +50,29 @@
       }
     }
   }
-  #filter{
+  .filter{
     .filter__item{
       color: $silver;
       cursor: pointer;
       &:hover{
         color: $yellow !important; 
+      }
+      .filterColor{
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+      }
+      
+    }
+    .filter__discount{
+      cursor: pointer;
+      .d-flex{
+        padding: .5rem;
+        justify-content: space-around;
+        img{
+          height:  100px;
+          width: auto;
+        }
       }
     }
   }
