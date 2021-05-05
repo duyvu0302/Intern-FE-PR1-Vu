@@ -1,0 +1,14 @@
+.breadcrumb{
+  .active{
+    &::before{
+      content: '' !important;
+      height: 8px;
+      width: 8px;
+      padding: 0 !important;
+      margin: 0 .5rem;
+      background-image: url(../assets/images/right-arrow1.svg);
+      background-size: cover;
+    }
+  }
+  
+}

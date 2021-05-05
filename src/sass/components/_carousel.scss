@@ -17,23 +17,40 @@
   width: 100%;
   .carousel-inner{
     padding-bottom: 2rem;
+    .img-center{
+      .main__product{
+        height: 709px !important;
+        &-inner{
+          .main__product-img{
+            img{
+              width: 450px;
+              height: 450px;
+            }
+          }
+          .main__product-content{
+            padding: 2.4rem 0;
+          }
+        }
+      }
+    }
   }
 }
 .desktopCarousel{
   display: block;
-  @include for-size(lg,down){
+  @include for-size(normal,down){
     display: none !important;
   }
 }
 .btnDesktop{
   @extend .desktopCarousel;
 }
+
 .laptopCarousel{
   display: none !important;
-  @include for-size(lg,down){
+  @include for-size(normal,down){
     display: block !important;
   }
-  @include for-size(md,down){
+  @include for-size(mdC,down){
     display: none !important;
   }
 }
@@ -41,7 +58,7 @@
   @extend .laptopCarousel;
 }
 .mobileCarousel{
-  @include for-size(md,up){
+  @include for-size(mdC,up){
     display: none !important;
   }
 }

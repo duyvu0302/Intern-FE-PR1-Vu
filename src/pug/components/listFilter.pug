@@ -1,7 +1,33 @@
-mixin listFilter()
-        - let listFilter =["Máy in khổ lớn","Máy quét Canon 3D","Máy hàn điện Alumia","Máy khoan Decameta","Máy phay đa năng CNC","Máy mài, tiện DC 12v","Máy khoan, cắt CNC","Máy quay thông minh N3","Motor R34C thông dụng","Máy in lazer 3D"]
-        each filter in listFilter
-            li.filter__item
-                .d-flex.p-3
-                    i.mt-2.fas.fa-th-large
-                    p.pl-2= filter
+block variables
+    include ../base/data.pug
+mixin listFilter(content)
+    .col-lg-12.productHost__filter
+        ul.listFilter
+            li.filter--title
+                .d-flex.position-relative.align-items-center.justify-content-between
+                    div.d-flex.p-3
+                        i.mt-2.fas.fa-th-large
+                        p.pl-2= content
+                    a.collapse__filter(href="#filter" data-toggle="collapse").pr-2.text-yellow
+                        i.fas.fa-chevron-down
+            +filter(listFilter,damn)
+        #filter.collapse
+            +filter(listFilter,damn)
+
+mixin filter(data,type)
+        if type != "Y"
+            each filter in listFilter
+                li.filter__item
+                    .d-flex.p-3
+                        i.mt-2.fas.fa-th-large
+                        p.pl-2= filter
+        else
+            -let productDiscount = 0
+            while productDiscount++ < 5
+                li.filter__discount
+                    .d-flex
+                        img.pr-3(src=`./assets/images/products/${productDiscount}.png`, alt="productDiscount")
+                        .filter__discount-content
+                            p MÁY KHOAN BLACK DECKER
+                            p 1.500.000 Đ
+            
