@@ -38,7 +38,6 @@ header
         .container
             .d-flex.justify-content-between
                 .header__widget
-                    - var socials = ['fab fa-facebook-f', 'fab fa-google-plus-g', 'fab fa-instagram', 'fab fa-twitter']
                     ul.d-flex
                         each social,index in socials
                             li(class=`py-3 ${index == 0 ? 'active' : ''}`)

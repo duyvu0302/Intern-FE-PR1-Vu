@@ -1,0 +1,13 @@
+.form-comment{
+    .form-group{
+        span{
+            color: $red;
+        }
+        input{
+            height: 60px;
+        }
+        textarea{
+            height: 110px;
+        }
+    }
+}

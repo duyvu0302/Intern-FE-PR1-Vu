@@ -4,11 +4,12 @@
 
 @import './components//carousel';
 @import './components/modal';
-@import './components/header';
-@import './components/footer';
+@import './layouts/footer';
+@import './layouts/header';
 @import './components/filter';
 @import './components/product';
 @import './components/listProducts';
 @import './pages/detailProduct';
+@import './pages/detailNews';
 
 @import './pages/index.scss';

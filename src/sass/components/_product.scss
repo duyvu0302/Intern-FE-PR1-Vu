@@ -208,9 +208,9 @@
   }
   .news__content{
     padding-bottom: 2rem;
-    border-bottom: solid 1px $silver;
     &:not(:first-child()){
       padding-top: 2.5rem;
+      border-top: solid 1px $silver;
     }
     .news-info{
       @include for-size(md){
@@ -218,3 +218,14 @@
       }
     }
   }
+.comment{
+  @include for-size(sm){
+    line-height: 20px;
+  }
+  height: 120px;
+  width: 100%;
+  img{
+    height: 115px;
+    width: 115px;
+  }
+}
