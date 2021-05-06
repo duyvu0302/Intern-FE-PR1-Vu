@@ -7,6 +7,8 @@ const { src, dest, parallel, watch, series } = require('gulp'),
 const FilesPath = {
   sassFiles: 'src/sass/**/*.scss',
   htmlFiles: 'src/pug/pages/*.pug',
+  jsFiles: "src/js/*.js",
+  
 };
 
 function sassTask() {
@@ -24,19 +26,25 @@ function htmlTask() {
     .pipe(browserSync.stream());
 }
 
+function jsTask() {
+  return src(FilesPath.jsFiles).pipe(dest("dist/assets/js"));
+}
 function assetsTask() {
-  return src('assets/**/*').pipe(dest('dist/assets'));
+  return src("assets/**/*").pipe(dest("dist/assets"));
 }
 
 function serve() {
   browserSync.init({ server: { baseDir: './dist' } });
   watch(FilesPath.sassFiles, sassTask);
   watch('src/pug/**/*.pug', htmlTask);
+  watch("src/js/*.js", jsTask);
+
 }
 
+exports.js = jsTask;
 exports.sass = sassTask;
 exports.html = htmlTask;
 exports.assets = assetsTask;
-exports.default = series(parallel(htmlTask, sassTask, assetsTask));
-exports.serve = series(serve, parallel(htmlTask, sassTask, assetsTask));
+exports.default = series(parallel(htmlTask, sassTask, assetsTask,jsTask));
+exports.serve = series(serve, parallel(htmlTask, sassTask, assetsTask,jsTask));
   

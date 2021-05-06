@@ -2,7 +2,7 @@ extend ../base/base.pug
 block content
     main.mt-5
         section.modal__home
-            //- +modalHome
+            +modalHome
         section.banner__main.pb-5
             .container
                 .row
@@ -88,4 +88,3 @@ block content
                     form(action="#").form-inline.justify-content-center
                         input.w-50(type="email" placeholder = "Nhập email của bạn...").form-control
                         button.text-white.btn.btn-warning.px-5 Đăng ký
-        a(href="/listProducts.html") Helo
