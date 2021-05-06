@@ -206,3 +206,15 @@
       }
     }
   }
+  .news__content{
+    padding-bottom: 2rem;
+    border-bottom: solid 1px $silver;
+    &:not(:first-child()){
+      padding-top: 2.5rem;
+    }
+    .news-info{
+      @include for-size(md){
+        flex-direction: column !important;
+      }
+    }
+  }

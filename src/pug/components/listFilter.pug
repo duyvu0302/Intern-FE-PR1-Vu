@@ -1,4 +1,3 @@
-
 mixin listFilter(content,data,type,icon)
     .col-lg-12.productHost__filter
         ul.listFilter
@@ -12,7 +11,6 @@ mixin listFilter(content,data,type,icon)
             +filter(data,type,icon)
         div.filter(id = `filter${icon == "X" ? 1 : `${icon == "Y" ? 2 : `${icon =="Z" ? 3 : 4 }` }` }` class = "collapse")
             +filter(data,type,icon)
-
 mixin filter(data,type,icon)
     - const bgColors = ["#e61010","#f5bd10","#0685ca","#acacac","#252525"]
     if type != "Y"
@@ -34,3 +32,19 @@ mixin filter(data,type,icon)
                     .filter__discount-content
                         p MÁY KHOAN BLACK DECKER
                         p.price 1.500.000 Đ
+mixin newsFilter(content,data)
+    .col-lg-12.newsFilter
+        .newsFilter-title.d-flex
+            i.my-auto.pr-2.fas.fa-th-large
+            p= content
+        ul.d-flex.flex-wrap
+            each item in data
+                if data == newsTag
+                    li.pr-2.pb-2
+                        a.newsTag.px-3.font-italic.border.d-block(href="#")= item
+                if data == newsImg
+                    .news-img.pr-2.pb-2
+                        img(src=item, alt="newsImg")
+                if data == listNews
+                    li.py-2.d-block.w-100
+                        a.newsList(href="#").text-span= item

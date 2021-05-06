@@ -77,3 +77,29 @@
     }
   }
 }
+.newsFilter{
+  @include for-size(lg){
+    display: none;
+  }
+  .newsTag{
+    border-color: black !important;
+    color: #343a40;
+    &:hover{
+      background-color: $black;
+      color: $white;
+    }
+  }
+  .news-img{
+    img{
+      width: 77px !important;
+    }
+  }
+  li{
+    cursor: pointer;
+    &:hover{
+      .newsList{
+        color: $yellow;
+      }
+    }
+  }
+}
