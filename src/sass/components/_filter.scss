@@ -1,22 +1,51 @@
-.listFilter{
-  @include borderMe();
-  .filter--title{
-    background-color: $black;
-    color: $yellow;
-   
-  }
-  i{
-    display: inline-block;
-  }
-  .filter__item{
-    color: $silver;
-    @include for-size(normal){
-      display: none;
+
+.productHost__filter{
+  .listFilter{
+    @include borderMe();
+    .filter--title{
+      background-color: $black;
+      color: $yellow;
+     
     }
-    cursor: pointer;
-    &:hover{
-      div{
-        color: $yellow !important;
+    i{
+      display: inline-block;
+    }
+    .filter__item{
+      color: $silver;
+      @include for-size(normal){
+        display: none;
+      }
+      cursor: pointer;
+      &:hover{
+        div{
+          color: $yellow !important;
+        }
+      }
+    }
+    .filter__discount{
+      .d-flex{
+        padding: .5rem;
+        img{
+          height:  100px;
+          width: auto;
+        }
+      }
+    }
+  }
+  .filter--title{
+    a{
+      display: none;
+      @include for-size(normal){
+        display: inline-block;
+      }
+    }
+  }
+  #filter{
+    .filter__item{
+      color: $silver;
+      cursor: pointer;
+      &:hover{
+        color: $yellow !important; 
       }
     }
   }

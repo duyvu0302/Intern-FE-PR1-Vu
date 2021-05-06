@@ -1,26 +1,30 @@
 extend ../base/base.pug
-include ../components/modal.pug
-include ../components/carousels.pug
-include ../components/listFilter.pug
-include ../components/product.pug
 
-mixin titleSection(title,attribute)
-    .titleSection.py-5.d-flex.justify-content-between
+
+mixin titleSection(type,title,id,id1,id2)
+    .titleSection.pb-5.d-flex.justify-content-between
         div.d-flex
             img.mt-2(src="./assets/images/4-black-squares.svg", alt="").d-block
             p.pl-2.m-0= title
-        - var title = 0
-        while (title++ < 3)
-            div(class=`${title == 1 ? 'btnDesktop' : ''} ${title == 2 ? 'btnLaptop' : ''} ${title == 3 ? 'btnMobile' : ''} titleSection__btn `)
-                a(href=`#${title == 1 ? 'carouselProduct' :`${title==2 ? 'carouselProduct1' : 'carouselProduct2'}`}` data-slide="prev")
-                    i.fas.fa-caret-left
-                a.ml-1(href=`#${title == 1 ? 'carouselProduct' :`${title==2 ? 'carouselProduct1' : 'carouselProduct2'}`}` data-slide="next")
-                    i.fas.fa-caret-right
+        .d-flex
+            if type == "Y"
+                .d-flex.listTab
+                    - const tabsProduct = ['Máy khoan',"Máy in 3D","Máy CNC","Máy tiện","Máy khác"]
+                    each tab in tabsProduct
+                        a.text-center(href="#")
+                            span.p-3= tab
+            - var title = 0
+            while (title++ < 3)
+                div(class=`${title == 1 ? 'btnDesktop' : ''} ${title == 2 ? 'btnLaptop' : ''} ${title == 3 ? 'btnMobile' : ''} titleSection__btn `)
+                    a(href=`#${title == 1 ? 'carouselProduct'+id :`${title==2 ? 'carouselProduct'+id1 : 'carouselProduct'+id2}`}` data-slide="prev")
+                        i.fas.fa-caret-left
+                    a.ml-1(href=`#${title == 1 ? 'carouselProduct'+id :`${title==2 ? 'carouselProduct'+id1 : 'carouselProduct'+id2}`}` data-slide="next")
+                        i.fas.fa-caret-right
 block content
-    main.my-5
+    main.mt-5
         section.modal__home
             +modalHome
-        .banner__main
+        section.banner__main.pb-5
             .container
                 .row
                     .col-lg-8.pr-0.col-md-12
@@ -34,27 +38,74 @@ block content
                                     .device__item-content
                                         p= device.title
                                         span= device.content
-        .main__productHots
+        section.main__productHots
             .container
                 .row
                     .col-lg-12
-                        +titleSection("SẢN PHẨM NỔI BẬT")
+                        +titleSection("N","SẢN PHẨM NỔI BẬT","","1","2")
                 .row
-                    .col-lg-3.col-md-12.productHost__filter
-                        ul.listFilter
-                            li.filter--title
-                                .d-flex.position-relative.align-items-center.justify-content-between
-                                    div.d-flex.p-3
-                                        i.mt-2.fas.fa-th-large
-                                        p.pl-2 MÁY KHOAN, CẮT CNC
-                                    a(href="#filter" data-toggle="collapse").pr-2.text-yellow
-                                        i.fas.fa-chevron-down
-                            +listFilter
-                        #filter.collapse
-                            +listFilter
-                    .col-lg-9.col-md-12.container
+                    .col-lg-3.col-md-12    
+                        +listFilter()
+                    .col-lg-9.col-md-12
                         .row
-                            +carouselProduct(products,6,"carouselProduct","desktopCarousel")
-                            +carouselProduct(products,2,"carouselProduct1","laptopCarousel")
-                            +carouselProduct(products,1,"carouselProduct2","mobileCarousel")
-                           
+                            +carousel(products,6,"carouselProduct","desktopCarousel",4,6,12)
+                            +carousel(products,2,"carouselProduct1","laptopCarousel",4,6,12)
+                            +carousel(products,1,"carouselProduct2","mobileCarousel",4,6,12)
+        section.newProducts
+            .container
+                .row
+                    .col-lg-12  
+                        +titleSection("Y","SẢN PHẨM MỚI","3","4","5")
+                    .col-lg-12.col-md-12
+                        .row
+                            +carousel(newProducts,3,"carouselProduct3","desktopCarousel",4,6,12)
+                            +carousel(newProducts,2,"carouselProduct4","laptopCarousel",4,6,12)
+                            +carousel(newProducts,1,"carouselProduct5","mobileCarousel",4,6,12)
+        section.banner__main-child.pb-5
+            .container
+                .row
+                    .col-lg-6.col-md-6.col-12
+                        img(src="./assets/images/banner/1.png", alt="banner child")
+                    .col-lg-6.col-md-6.col-12
+                        img(src="./assets/images/banner/2.png", alt="banner child")
+        section.selling__products
+            .container
+                .row
+                    .col-lg-12
+                        +titleSection("Y","SẢN PHẨM BÁN CHẠY","6","7","8")
+                    .col-lg-12
+                        .row
+                            +carousel(sellingProduct,5,"carouselProduct6","desktopCarousel",4,6,12)
+                            +carousel(sellingProduct,2,"carouselProduct7","laptopCarousel",4,6,12)
+                            +carousel(sellingProduct,1,"carouselProduct8","mobileCarousel",4,6,12)
+        section.banner__main-last.pb-5
+            .container
+                .row
+                    .col-lg-12.banner__main-last-mobile
+                        img(src="./assets/images/banner/4.png", alt="banner4")
+                    .col-lg-12.banner__main-last-pc
+                        img(src="./assets/images/banner/3.png", alt="")
+        section.newProducts-2
+            .container
+                .row
+                    .col-lg-12
+                        +titleSection("","HÀNG MỚI VỀ","9","10","11")
+                    +carousel(newProduct2,4,"carouselProduct9","desktopCarousel",6,12,12,"Y")
+                    +carousel(newProduct2,2,"carouselProduct10","laptopCarousel",6,12,12,"Y")
+                    +carousel(newProduct2,1,"carouselProduct11","mobileCarousel",6,12,12,"Y")
+        section.partners
+            .container
+                .row
+                    each partner in partners
+                        .col-lg.partners__list.desktopCarousel
+                            img(src=partner, alt="")
+                    +carousel(partners,3,"carouselPartner","laptopCarousel",4,4,6,"","Y")
+                    +carousel(partners,1,"carouselPartner","mobileCarousel",6,6,12,"","Y")
+        section.register.d-flex.justify-content-center.align-items-center
+                .justify-content-center.register__inner.px-4
+                    .register__title.text-center
+                        h3 Đăng ký để nhận tin tức khuyến mãi hàng tuần
+                    form(action="#").form-inline.justify-content-center
+                        input.w-50(type="email" placeholder = "Nhập email của bạn...").form-control
+                        button.text-white.btn.btn-warning.px-5 Đăng ký
+

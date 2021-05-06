@@ -51,15 +51,56 @@
     margin-top: 45px;
     @include flex("",center,center);
     @include transition();
-    button{
+    a{
       font-size: 13px;
-      width: 120px;
+      width: 100px;
       border-radius: unset !important;
       @include flex("",center,center);
-      color: $white;
+      color: $white !important;
       &:hover{
         color: $white;
         opacity: .6;
+      }
+    }
+  }
+}
+.main__productOther{
+  padding-bottom: 2rem;
+  &-inner{
+    @include border();
+    &:hover{
+      @include borderMe();
+    }
+    @include for-size(md){
+      flex-direction: column;
+    }
+    @include flex("",center,center,"");
+    .main__productOther-img{
+      width: 160px;
+      height: 160px;
+    }
+    .main__productOther-content{
+      @include for-size(md){
+        width: 100%;
+      }
+      &-title{
+        font-size: 17px;
+        text-transform: uppercase;
+      }
+      i{  
+        color: $yellow;
+      }
+      padding: 1.5rem;
+      width: 68%;
+      .main__product-btn{
+        margin: unset !important;
+        @include for-size(md){
+          justify-content: start;
+        }
+      }
+      .price{
+        color: $red;
+        font-size: 18px;
       }
     }
   }
