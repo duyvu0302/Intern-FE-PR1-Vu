@@ -1,6 +1,6 @@
-mixin titleList(text)
-    li 
-        a(href="#")= text
+mixin titleList(text,link)
+    li
+        a(href= link)= text
 mixin titleListItem(text)
     li
         i.fas.fa-caret-right 
@@ -75,7 +75,7 @@ header
                         ul.row
                             .col-lg-12
                                 li.active.position-relative
-                                    a(href="#") TRANG CHỦ
+                                    a(href="/") TRANG CHỦ
                             .col-lg-12
                                 li.position-relative.nav-introduce
                                     a(href="#") GIỚI THIỆU
@@ -90,18 +90,14 @@ header
                                                 +titleListItem("Hệ thống cửa hàng A3")
                                         +titleListItem("Chính sách ưu đãi")
                                         +titleListItem("Thông tin tuyển dụng")
-                            .col-lg-12
-                                +titleList("SẢN PHẨM")
-                            .col-lg-12
-                                +titleList("TIN KHUYẾN MÃI")
-                            .col-lg-12
-                                +titleList("DỊCH VỤ")
-                            .col-lg-12
-                                +titleList("LIÊN HỆ")
+                            each title in titleList
+                                .col-lg-12
+                                    li
+                                        a(href=title.link)= title.name
                 nav.header__nav.col-lg-11
                     ul.d-flex
                         li.active.position-relative
-                            a(href="#") TRANG CHỦ
+                            a(href="/") TRANG CHỦ
                             .nav__menu-home.position-absolute
                                 .container
                                     .row
@@ -136,10 +132,9 @@ header
                                         +titleListItem("Hệ thống cửa hàng A3")
                                 +titleListItem("Chính sách ưu đãi")
                                 +titleListItem("Thông tin tuyển dụng")
-                        +titleList("SẢN PHẨM")
-                        +titleList("TIN KHUYẾN MÃI")
-                        +titleList("DỊCH VỤ")
-                        +titleList("LIÊN HỆ")
+                        each title in titleList
+                            li
+                                a(href=title.link)= title.name
                 .col-lg-1.col-md-2.col-3.header__bot-cart.dropdown
                     a.h-100.text-white.d-flex.justify-content-center.align-items-center.dropdown-toggle(href="#" data-toggle="dropdown")
                         i.fas.fa-shopping-cart

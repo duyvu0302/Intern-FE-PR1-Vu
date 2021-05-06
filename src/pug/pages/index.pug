@@ -1,29 +1,8 @@
 extend ../base/base.pug
-
-
-mixin titleSection(type,title,id,id1,id2)
-    .titleSection.pb-5.d-flex.justify-content-between
-        div.d-flex
-            img.mt-2(src="./assets/images/4-black-squares.svg", alt="").d-block
-            p.pl-2.m-0= title
-        .d-flex
-            if type == "Y"
-                .d-flex.listTab
-                    - const tabsProduct = ['Máy khoan',"Máy in 3D","Máy CNC","Máy tiện","Máy khác"]
-                    each tab in tabsProduct
-                        a.text-center(href="#")
-                            span.p-3= tab
-            - var title = 0
-            while (title++ < 3)
-                div(class=`${title == 1 ? 'btnDesktop' : ''} ${title == 2 ? 'btnLaptop' : ''} ${title == 3 ? 'btnMobile' : ''} titleSection__btn `)
-                    a(href=`#${title == 1 ? 'carouselProduct'+id :`${title==2 ? 'carouselProduct'+id1 : 'carouselProduct'+id2}`}` data-slide="prev")
-                        i.fas.fa-caret-left
-                    a.ml-1(href=`#${title == 1 ? 'carouselProduct'+id :`${title==2 ? 'carouselProduct'+id1 : 'carouselProduct'+id2}`}` data-slide="next")
-                        i.fas.fa-caret-right
 block content
     main.mt-5
         section.modal__home
-            +modalHome
+            //- +modalHome
         section.banner__main.pb-5
             .container
                 .row
@@ -44,8 +23,9 @@ block content
                     .col-lg-12
                         +titleSection("N","SẢN PHẨM NỔI BẬT","","1","2")
                 .row
-                    .col-lg-3.col-md-12    
-                        +listFilter()
+                    .col-lg-3.col-md-12
+                        .row
+                            +listFilter("DANH MỤC SẢN PHẨM",listFilter,"","X","Y")
                     .col-lg-9.col-md-12
                         .row
                             +carousel(products,6,"carouselProduct","desktopCarousel",4,6,12)
@@ -108,4 +88,4 @@ block content
                     form(action="#").form-inline.justify-content-center
                         input.w-50(type="email" placeholder = "Nhập email của bạn...").form-control
                         button.text-white.btn.btn-warning.px-5 Đăng ký
-
+        a(href="/listProducts.html") Helo

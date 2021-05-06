@@ -69,10 +69,8 @@ footer.footer
                     span.px-1  Phát triển bởi
                     span.text-white Bizweb
                 .col-lg-8.footer__bot-nav.d-flex.text-white.col-md-12.justify-content-center.align-items-center
-                    +titleList("Trang chủ")
-                    +titleList("Giới thiệu")
-                    +titleList("Sản phẩm")  
-                    +titleList("Tin khuyến mãi")
-                    +titleList("Dịch vụ")
-                    +titleList("Liên hệ")
+                    each title in titleListFT
+                        li
+                            a(href=title.link)= title.name
+
     
