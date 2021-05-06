@@ -1,0 +1,15 @@
+.error__content{
+    p{
+        font-size: 1.3rem;
+        @include for-size(sm){
+            font-size: 1rem;
+        }
+    }
+    .h1{
+        font-size: 100px;
+        color: $yellow;
+        @include for-size(sm){
+            font-size: 1.2rem;
+        }
+    }
+}
