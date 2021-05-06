@@ -136,7 +136,6 @@ mixin detailProduct()
                                     a(href="#").ggPlus.border.text-white.p-1
                                         i.fas.fa-plus-square.pr-1
                                         span.p-l Share
-                                    
 mixin titleSection(type,title,id,id1,id2)
     .titleSection.pb-5.d-flex.justify-content-between
         div.d-flex
@@ -156,9 +155,34 @@ mixin titleSection(type,title,id,id1,id2)
                         i.fas.fa-caret-left
                     a.ml-1(href=`#${title == 1 ? 'carouselProduct'+id :`${title==2 ? 'carouselProduct'+id1 : 'carouselProduct'+id2}`}` data-slide="next")
                         i.fas.fa-caret-right
-                            
-
-
-
-
-                        
+mixin news({img,title,date,author,comment,content})
+    .news__content
+        .news__inner
+            .img-news
+                img(src=img, alt="news")
+            h6.pt-3= title
+            .news-info.d-flex.font-italic
+                p.text-span.pr-3= date
+                p.text-span
+                    i.fas.fa-user
+                    span.px-1 Đăng bởi
+                    a(href="#").pr-3.text-yellow= author
+                p.text-span
+                    i.fas.fa-comments
+                    span=`${comment} bình luận`
+            .news-text.text-span
+                p= content
+                    a(href="./detailNews.html").font-0.text-yellow [Đọc tiếp]
+mixin pagination()
+        nav(aria-label='Page navigation example')
+            ul.pagination.justify-content-end.pagination-custom
+                li.page-item.disabled
+                    a.page-link(href='#', tabindex='-1') Trang trước
+                li.page-item.active
+                    a.page-link(href='#') 1
+                li.page-item
+                    a.page-link(href='#') 2
+                li.page-item
+                    a.page-link(href='#') 3
+                li.page-item
+                    a.page-link(href='#') Trang cuối
