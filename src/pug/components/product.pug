@@ -186,3 +186,16 @@ mixin pagination()
                     a.page-link(href='#') 3
                 li.page-item
                     a.page-link(href='#') Trang cuối
+mixin comment({img,name,date,content})
+    .comment.d-flex.justify-content-between
+        .comment__img
+            img.p-1.border(src=img, alt="person")
+        .comment__content.pl-3
+            p.comment__content-name= name
+            .comment__content-date.d-flex.justify-content-between
+                p.text-span.font-italic= date
+                p.text-italic.font-italic.text-yellow
+                    u Trả lời
+            .comment__content-text
+                p.text-clamp.text-clamp--2= content
+            
