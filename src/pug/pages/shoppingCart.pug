@@ -1,7 +1,10 @@
 extend ../base/base.pug
+include ../components/carts.pug
+
 block content
     +breadcrumbs([{ link: '/', name: 'Trang chủ' }, { link: './shoppingCart.html', name: 'Giỏ hàng' }])
     section.cart
         .container
             .row
-                
+                .col-lg-12
+                    +cart()
